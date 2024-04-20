@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 export default class Navbar extends Component {
   render() {
@@ -6,9 +7,9 @@ export default class Navbar extends Component {
       <>
         <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
           <div className="container-fluid">
-            <a className="navbar-brand" href="/">
-              News Daily
-            </a>
+            <NavLink className="navbar-brand" to="/">
+              <strong>News Daily</strong>
+            </NavLink>
             <button
               className="navbar-toggler"
               type="button"
@@ -24,24 +25,86 @@ export default class Navbar extends Component {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <ul className="navbar-nav nav-underline me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">
+                  <NavLink
+                    className={`nav-link ${(e) => {
+                      return e.isActive ? "active" : "";
+                    }}`}
+                    aria-current="page"
+                    to="/"
+                  >
                     Home
-                  </a>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">
-                    About
-                  </a>
+                  <NavLink
+                    className={`nav-link ${(e) => {
+                      return e.isActive ? "active" : "";
+                    }}`}
+                    aria-current="page"
+                    to="/business"
+                  >
+                    Business
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="/">
-                    Contact Us
-                  </a>
+                  <NavLink
+                    className={`nav-link ${(e) => {
+                      return e.isActive ? "active" : "";
+                    }}`}
+                    aria-current="page"
+                    to="/entertainment"
+                  >
+                    Entertainment
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
+                    className={`nav-link ${(e) => {
+                      return e.isActive ? "active" : "";
+                    }}`}
+                    aria-current="page"
+                    to="/health"
+                  >
+                    Health
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
+                    className={`nav-link ${(e) => {
+                      return e.isActive ? "active" : "";
+                    }}`}
+                    aria-current="page"
+                    to="/science"
+                  >
+                    Science
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
+                    className={`nav-link ${(e) => {
+                      return e.isActive ? "active" : "";
+                    }}`}
+                    aria-current="page"
+                    to="/sports"
+                  >
+                    Sports
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
+                    className={`nav-link ${(e) => {
+                      return e.isActive ? "active" : "";
+                    }}`}
+                    aria-current="page"
+                    to="/technology"
+                  >
+                    Technology
+                  </NavLink>
                 </li>
               </ul>
-              <form className="d-flex" role="search">
+              {/* <form className="d-flex" role="search">
                 <input
                   className="form-control me-2"
                   type="search"
@@ -51,7 +114,7 @@ export default class Navbar extends Component {
                 <button className="btn btn-outline-success" type="submit">
                   Search
                 </button>
-              </form>
+              </form> */}
             </div>
           </div>
         </nav>

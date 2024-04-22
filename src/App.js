@@ -1,21 +1,21 @@
 import "./App.css";
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import Navbar from "./components/Navbar";
 import News from "./components/News";
 
-export default class App extends Component {
-  pageSize = 5;
-  country = "us";
-  apiKey = process.env.REACT_APP_NEWS_API;
-  state = { progress: 0 };
+export default function App() {
+  const pageSize = 6;
+  const country = "us";
+  const apiKey = process.env.REACT_APP_NEWS_API;
+  const [progress, setProgress] = useState(0);
 
-  setProgress = (progress) => {
-    this.setState({ progress: progress });
+  const updateProgress = (progress) => {
+    setProgress(progress);
   };
 
-  router = createBrowserRouter([
+  const router = createBrowserRouter([
     {
       path: "/",
       element: (
@@ -23,11 +23,11 @@ export default class App extends Component {
           <Navbar />
           <News
             key="home"
-            pageSize={this.pageSize}
-            country={this.country}
+            pageSize={pageSize}
+            country={country}
             category="general"
-            apiKey={this.apiKey}
-            setProgress={this.setProgress}
+            apiKey={apiKey}
+            updateProgress={updateProgress}
           />
         </>
       ),
@@ -39,11 +39,11 @@ export default class App extends Component {
           <Navbar />
           <News
             key="business"
-            pageSize={this.pageSize}
-            country={this.country}
+            pageSize={pageSize}
+            country={country}
             category="business"
-            apiKey={this.apiKey}
-            setProgress={this.setProgress}
+            apiKey={apiKey}
+            updateProgress={updateProgress}
           />
         </>
       ),
@@ -55,11 +55,11 @@ export default class App extends Component {
           <Navbar />
           <News
             key="entertainment"
-            pageSize={this.pageSize}
-            country={this.country}
+            pageSize={pageSize}
+            country={country}
             category="entertainment"
-            apiKey={this.apiKey}
-            setProgress={this.setProgress}
+            apiKey={apiKey}
+            updateProgress={updateProgress}
           />
         </>
       ),
@@ -71,11 +71,11 @@ export default class App extends Component {
           <Navbar />
           <News
             key="health"
-            pageSize={this.pageSize}
-            country={this.country}
+            pageSize={pageSize}
+            country={country}
             category="health"
-            apiKey={this.apiKey}
-            setProgress={this.setProgress}
+            apiKey={apiKey}
+            updateProgress={updateProgress}
           />
         </>
       ),
@@ -87,11 +87,11 @@ export default class App extends Component {
           <Navbar />
           <News
             key="science"
-            pageSize={this.pageSize}
-            country={this.country}
+            pageSize={pageSize}
+            country={country}
             category="science"
-            apiKey={this.apiKey}
-            setProgress={this.setProgress}
+            apiKey={apiKey}
+            updateProgress={updateProgress}
           />
         </>
       ),
@@ -103,11 +103,11 @@ export default class App extends Component {
           <Navbar />
           <News
             key="sports"
-            pageSize={this.pageSize}
-            country={this.country}
+            pageSize={pageSize}
+            country={country}
             category="sports"
-            apiKey={this.apiKey}
-            setProgress={this.setProgress}
+            apiKey={apiKey}
+            updateProgress={updateProgress}
           />
         </>
       ),
@@ -119,23 +119,21 @@ export default class App extends Component {
           <Navbar />
           <News
             key="technology"
-            pageSize={this.pageSize}
-            country={this.country}
+            pageSize={pageSize}
+            country={country}
             category="technology"
-            apiKey={this.apiKey}
-            setProgress={this.setProgress}
+            apiKey={apiKey}
+            updateProgress={updateProgress}
           />
         </>
       ),
     },
   ]);
 
-  render() {
-    return (
-      <>
-        <LoadingBar color="#f11946" progress={this.state.progress} />
-        <RouterProvider router={this.router} />
-      </>
-    );
-  }
+  return (
+    <>
+      <LoadingBar color="#f11946" progress={progress} />
+      <RouterProvider router={router} />
+    </>
+  );
 }
